@@ -6,7 +6,6 @@ export const App = () => (
   <div className="App">
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" style={{ borderRadius: "50%" }} />
-      {/* <h1>Greennit</h1> */}
     </header>
     <main>
       <Reddit />
