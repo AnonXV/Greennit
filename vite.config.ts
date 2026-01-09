@@ -7,7 +7,7 @@ import packageJson from "./package.json" with { type: "json" }
 export default defineConfig({
   // Use a relative base so the production build works when served from
   // GitHub Pages (or any subpath). This avoids hardcoding the repo name.
-  base: "./",
+  base: "/Greennit/",
   plugins: [react()],
 
   server: {
