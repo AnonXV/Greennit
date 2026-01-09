@@ -1,6 +1,4 @@
 import "./App.css"
-import { Counter } from "./features/counter/Counter"
-import { Quotes } from "./features/quotes/Quotes"
 import { Reddit } from "./features/reddit/Reddit"
 import logo from "./greennit-logo.png"
 

@@ -32,14 +32,6 @@ interface RedditPostsResponse {
   }
 }
 
-interface RedditCommentsResponse {
-  data: {
-    children: Array<{
-      data: RedditComment
-    }>
-  }
-}
-
 // Reddit API doesn't require authentication for public data
 export const redditApiSlice = createApi({
   baseQuery: fetchBaseQuery({
@@ -62,7 +54,7 @@ export const redditApiSlice = createApi({
         `/r/${subreddit}/top.json?limit=${limit}&t=${timeframe}`,
       transformResponse: (response: RedditPostsResponse) =>
         response.data.children.map(child => child.data),
-      providesTags: (result, _error, { subreddit }) => [
+      providesTags: (_result, _error, { subreddit }) => [
         { type: "Posts", id: subreddit },
       ],
     }),
@@ -79,7 +71,7 @@ export const redditApiSlice = createApi({
         const commentsData = response[1]?.data?.children || []
         return commentsData.map((child: any) => child.data)
       },
-      providesTags: (result, _error, { postId }) => [
+      providesTags: (_result, _error, { postId }) => [
         { type: "Comments", id: postId },
       ],
     }),
